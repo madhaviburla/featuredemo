@@ -24,7 +24,7 @@ bfv = BatchFeatureView(
     ],
     udf=transform_feature,
     online=True,
-    source=driver_stats_source,
+    source=drivers_stat_source,
     tags={"production": "True"},
     owner="test2@gmail.com",
 )
