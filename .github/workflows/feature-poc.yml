@@ -33,7 +33,7 @@ jobs:
           ls
       - name: Execute Compute Engine
         run: |
-          cd module_5_compute_engine
+          cd module_5_compute_engine/feature_repo
           feast apply
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
