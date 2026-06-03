@@ -17,6 +17,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feast pandas scikit-learn pyarrow
+          pip install feast[snowflake]
       - name: Validate feast
         run: feast version
       - name: Execute Module 0
@@ -34,7 +35,7 @@ jobs:
       - name: Execute Compute Engine
         run: |
           cd module_5_compute_engine/feature_repo
-          feast apply
+          feast apply --verbose
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
