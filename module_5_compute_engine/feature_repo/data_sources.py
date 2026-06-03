@@ -2,8 +2,7 @@ from feast import (
     Field,
     FileSource,
     PushSource,
-    RequestSource,
-    SnowflakeSource
+    RequestSource
 )
 from feast.types import Int64, Float32
 
@@ -17,9 +16,7 @@ from feast.types import Int64, Float32
 # )
 
 
-tpch_sf = SnowflakeSource(
-    database="SNOWFLAKE_SAMPLE_DATA",
-    schema="TPCH_SF10",
-    table="ORDERS",
-    timestamp_field="O_ORDERDATE"
+drivers_stat_source = FileSource(
+    path='../data/driver_stat.parquet,
+    timestamp_field="event_timestamp"
 )
