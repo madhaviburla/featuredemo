@@ -5,7 +5,7 @@ provider: local
 registry: data/registry.db
 
 online_store:
-    type: sq_lite
+    type: data/online_store.db
     
 offline_store:
      type: file
