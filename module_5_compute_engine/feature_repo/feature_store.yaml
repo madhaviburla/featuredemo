@@ -3,9 +3,6 @@ project: feast_demo_compute_engine
 provider: local
 
 registry: data/registry.db
-
-online_store:
-    type: data/online_store.db
     
 offline_store:
      type: file
