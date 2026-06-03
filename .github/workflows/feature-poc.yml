@@ -16,22 +16,10 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install feast pandas scikit-learn pyarrow pyspark cryptography
+          pip install feast pandas scikit-learn pyarrow pyspark cryptography snowflake-connector-python
        
       - name: Validate feast
         run: feast version
-      - name: Execute Module 0
-        run: |
-          cd module_0
-          ls
-      - name: Execute Module 1
-        run: |
-          cd module_1
-          ls
-      - name: Execute Module 2
-        run: |
-          cd module_2
-          ls
       - name: Execute Compute Engine
         run: |
           cd module_5_compute_engine/feature_repo
