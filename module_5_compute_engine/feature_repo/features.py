@@ -17,7 +17,7 @@ def transform_feature(inputs: pyspark.sql.DataFrame):
             when(col("O_TOTALPRICE") >5000, 1).otherwise(0)
         ).withColumn(
             "order_completed",
-            when(col("O_ORDERSTATUS") ==F, 1).otherwise(0)
+            when(col("O_ORDERSTATUS") =="F", 1).otherwise(0)
         )
     print("transformation applied successfully")
     
