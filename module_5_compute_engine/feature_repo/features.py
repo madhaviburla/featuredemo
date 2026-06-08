@@ -14,11 +14,11 @@ from entities import *
 def transform_feature(inputs: pyspark.sql.DataFrame):
     transformed_df = inputs \
         .withColumn(
-            "high_value_order"
+            "high_value_order",
             when(col("O_TOTALPRICE") >5000, 1).otherwise(0)
         )\
        .withColumn(
-            "order_completed"
+            "order_completed",
             when(col("O_ORDERSTATUS") ==F, 1).otherwise(0)
         )
     print("transformation applied successfully")
