@@ -24,6 +24,10 @@ jobs:
         run: |
           cd module_5_compute_engine/feature_repo
           feast apply
+      - name: Run high value customer usecase
+        run: |
+          cd module_5_compute_engine/feature_repo
+          python demo_usecase.py
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
