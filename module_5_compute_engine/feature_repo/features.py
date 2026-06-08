@@ -5,7 +5,6 @@ from feast import (
     Field,
 )
 import pyspark
-from pyspark.sql.functions import col, when
 from feast.types import String, Float32, Int64
 
 from data_sources import *
