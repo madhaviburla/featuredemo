@@ -20,8 +20,7 @@ def transform_feature(inputs: pyspark.sql.DataFrame):
             when(col("O_ORDERSTATUS") =="F", 1).otherwise(0)
         )
     print("transformation applied successfully")
-    
-     transformed_df.show(5)    
+    transformed_df.show(5)    
     return transformed_df
 
 
