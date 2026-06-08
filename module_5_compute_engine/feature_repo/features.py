@@ -1,9 +1,10 @@
-from datetime import timedelta
+from datetime import timedelta, Float32, Int64
 
 from feast import (
     BatchFeatureView,
 )
 import pyspark
+from pyspark.sql.functions import col, when
 from feast.types import String
 
 from data_sources import *
@@ -11,7 +12,20 @@ from entities import *
 
 
 def transform_feature(inputs: pyspark.sql.DataFrame):
-    return inputs
+    transformed_df = inputs \
+        .withColumn(
+            "high_value_order"
+            when(col("O_TOTALPRICE") >5000, 1).otherwise(0)
+        )\
+       .withColumn(
+            "order_completed"
+            when(col("O_ORDERSTATUS") ==F, 1).otherwise(0)
+        )
+    print("transformation applied successfully")
+    print("Added columns: high_value_order, order_completed")
+    
+     transformed_df.show(5)    
+    return transformed_df
 
 
 bfv = BatchFeatureView(
@@ -21,6 +35,8 @@ bfv = BatchFeatureView(
     schema=[
         Field(name="O_TOTALPRICE", dtype=Float32),
         Field(name="O_ORDERSTATUS", dtype=String),
+        Field(name="O_high_value_order", dtype=Int64),
+        Field(name="O_order_completed", dtype=Int64),
     ],
     udf=transform_feature,
     online=True,
