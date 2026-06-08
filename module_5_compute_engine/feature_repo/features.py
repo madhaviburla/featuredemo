@@ -4,7 +4,7 @@ from feast import (
     BatchFeatureView,
 )
 import pyspark
-from feast.types import String
+from feast.types import String, Float32, Int64
 
 from data_sources import *
 from entities import *
