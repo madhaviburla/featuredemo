@@ -4,7 +4,7 @@ from data_source import *
 from entities import *
 
 bfv = BatchFeatureView(
-    name="order_stats"
+    name="order_stats",
     entities=[customer],
     schema=[
         Field(name="O_TOTALPRICE", dtype=Float32),
