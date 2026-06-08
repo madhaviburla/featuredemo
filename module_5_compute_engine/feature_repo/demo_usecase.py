@@ -20,6 +20,6 @@ print("high valude customer feature")
 
 print(df.to_string(index=False))
 
-df,to_csv("customer_feature.csv", index=False)
+df.to_csv("customer_feature.csv", index=False)
 
 print("customer_feature.csv generated successfully")
