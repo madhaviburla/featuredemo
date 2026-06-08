@@ -19,16 +19,16 @@ def transform_feature(inputs: pyspark.sql.DataFrame):
         "order_completed",
         when(col("O_ORDERSTATUS") =="F", 1).otherwise(0)
     )
-   print("High value customer feature transformation applied successfully")
+    print("High value customer feature transformation applied successfully")
 
-   transformed_df.show(5, truncate=False)
+    transformed_df.show(5, truncate=False)
     
-   transformed_df.toPandas().to_csv(
+    transformed_df.toPandas().to_csv(
         "customer_features.csv",
         index=False
-   )
+    )
     
-   return transformed_df
+    return transformed_df
 
 
 
