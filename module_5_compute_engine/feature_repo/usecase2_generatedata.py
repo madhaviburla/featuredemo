@@ -8,9 +8,9 @@ df = pd.DataFrame({
 def segment_customer(x):
     if x >= 10:
         return "Premium"
-   elif x >= 5:
+    elif x >= 5:
         return "Regular"
-   else:
+    else:
         return "Low"
 
 df["customer_segment"] = df["total_orders"].apply(segment_customer)
