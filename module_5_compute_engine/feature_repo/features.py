@@ -18,7 +18,7 @@ customer_segmentation_bfv = BatchFeatureView(
     name="customer_segmentation",
     entities=[customer],
     schema=[
-        Field(name="O_TOTALPRICE", dtype=Float32),
+        Field(name="total_orders", dtype=Float32),
         Field(name="customer_segment", dtype=String),
     ],
     online=True,
