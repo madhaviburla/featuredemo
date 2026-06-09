@@ -2,7 +2,7 @@ import pandas as pd
 
 df = pd.DataFrame({
      "customer_id": [101,102,103],
-     "total_orders": [15,,3,8]
+     "total_orders": [15,3,8]
 })
 
 def segment_customer(x):
