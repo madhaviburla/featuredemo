@@ -3,7 +3,7 @@ from feast.types import String, Float32, Int64
 
 #from data_sources import drivers_stat_source
 #from entities import customer
-customer = Entity(name="customer_id", join_keys=["customer_id"]
+customer = Entity(name="customer_id", join_keys=["customer_id"])
 drivers_stat_source = FileSource(
     Path="../data/customer_features.csv",
     timestamp_field="event_timestamp",
