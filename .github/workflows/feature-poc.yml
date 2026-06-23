@@ -35,7 +35,7 @@ jobs:
       - name: Materialize feast features
         run: |
           cd module_5_compute_engine/feature_repo
-          feast materialize-incremental $(date -u +"%y-%m-%dT%H:%M:%S")
+          feast materialize-incremental 2026-06-23T07:39:46
       - name: Run churn prediction usecase
         run: |
           python module_5_compute_engine/predict_.churn.py
