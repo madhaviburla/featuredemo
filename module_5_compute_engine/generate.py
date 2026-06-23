@@ -19,7 +19,7 @@ def segment_customer(x):
         return "Regular"
     else:
         return "Low"
-def predict_churn(days_since_last_purchas, last_90d_orders_count, login_count_last_30d):
+def predict_churn(days_since_last_purchase, last_90d_orders_count, login_count_last_30d):
     if (
          days_since_last_purchase > 45
          and last_90d_orders_count < 2
