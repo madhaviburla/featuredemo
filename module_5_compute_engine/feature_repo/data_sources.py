@@ -17,6 +17,6 @@ from feast.types import Int64, Float32
 
 
 drivers_stat_source = FileSource(
-    path="../data/driver_stats_lat_lon.parquet",
+    path="../data/customer_features.csv",
     timestamp_field="event_timestamp",
 )
