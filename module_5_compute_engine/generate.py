@@ -12,8 +12,8 @@ df = pd.DataFrame({
      "coupon_usage_rate": [0.15, 0.60, 0.20],
      "event_timestamp": [
          datetime.utcnow(),
-         datetime.utunow(),
-         datetime.utunow()
+         datetime.utcnow(),
+         datetime.utcnow()
      ]
 })
 
