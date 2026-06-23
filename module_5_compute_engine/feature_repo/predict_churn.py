@@ -18,7 +18,7 @@ def main():
     store = FeatureStore(repo_path="feature repo")
 
     feature_vector = store.get_online_features(
-        feature=[,
+        feature=[
             "customers_features:days_since_last_purchase",
             "customers_features:last_90d_order_count",
             "customers_features:avg_order_value",
