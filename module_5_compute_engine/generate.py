@@ -63,7 +63,7 @@ print("Generated customer features:")
 print(df)
 
 output_dir = Path("module_5_compute_engine/data")
-output_dir.mkdir(parents==True, exit_ok=True)
+output_dir.mkdir(parents=True, exist_ok=True)
 
 output_filr = output_dir / "customer_features.csv"
 df.to_csv(output_file, index=False)
