@@ -1,5 +1,5 @@
 from feast import BatchFeatureView, Field
-from feast.types import String, Float32
+from feast.types import String, Float32, Int64
 
 from data_sources import drivers_stat_source
 from entities import customer
