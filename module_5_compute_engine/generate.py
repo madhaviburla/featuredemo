@@ -13,7 +13,7 @@ df = pd.DataFrame({
      "event_timestamp": [
          datetime.utcnow(),
          datetime.utcnow(),
-         datetime.utcnow()
+         datetime.utcnow(),
      ]
 })
 
