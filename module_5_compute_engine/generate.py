@@ -1,6 +1,6 @@
 import pandas as pd
 from datetime import datetime
-from pathlib import path
+from pathlib import Path
 
 df = pd.DataFrame({
      "customer_id": [101, 102, 103],
@@ -62,7 +62,7 @@ df["order_completed"] = df["O_ORDERSTATUS"].apply(order_completed)
 print("Generated customer features:")
 print(df)
 
-output_dir = path("module_5_compute_engine/data")
+output_dir = Path("module_5_compute_engine/data")
 output_dir.mkdir(parents==True, exit_ok=True)
 
 output_filr = output_dir / "customer_features.csv"
