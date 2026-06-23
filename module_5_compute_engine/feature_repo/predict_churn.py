@@ -9,7 +9,7 @@ def classify_churn(days_since_last_purchase, last_90d_order_count, login_count_l
          and login_count_last_30d < 3
     ):
          return "High Churn Risk"
-      return "Low/Medium Churn Risk"
+    return "Low/Medium Churn Risk"
 
 
 def main():
