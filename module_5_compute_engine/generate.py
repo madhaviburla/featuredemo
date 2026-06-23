@@ -9,7 +9,11 @@ df = pd.DataFrame({
      "support_ticket_count": [3, 1, 4],
      "login_count_last_30d": [2, 15, 1],
      "coupon_usage_rate": [0.15, 0.60, 0.20],
-     
+     "event_timestamp": [
+         datetime.utcnow(),
+         datetime.utunow(),
+         datetime.utunow()
+     ]
 })
 
 def segment_customer(x):
@@ -39,3 +43,7 @@ df["churn_prediction"] = df.apply(
      axis=1
 )
 print(df)
+
+df.to_csv("module_5_compute_engine/data/customer_features.csv", index=False)
+
+print("customer_features.csv ganerated successfully")
