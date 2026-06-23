@@ -1,4 +1,5 @@
 import pandas as pd
+from datetime import datetime
 
 df = pd.DataFrame({
      "customer_id": [101, 102, 103],
