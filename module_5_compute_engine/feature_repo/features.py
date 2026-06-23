@@ -11,7 +11,7 @@ bfv = BatchFeatureView(
         Field(name="O_TOTALPRICE", dtype=Float32),
         Field(name="O_ORDERSTATUS", dtype=String),
         Field(name="high_order_value", dtype=Int64),
-        Filed(name="order_completed" dtype=Int64),
+        Filed(name="order_completed", dtype=Int64),
     ],
     online=True,
     source=drivers_stat_source,
