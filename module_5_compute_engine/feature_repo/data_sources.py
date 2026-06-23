@@ -1,9 +1,4 @@
-from feast import (
-    Field,
-    FileSource,
-    PushSource,
-    RequestSource
-)
+from feast import FileSource
 from feast.types import Int64, Float32
 
 # driver_stats = SparkSource(
