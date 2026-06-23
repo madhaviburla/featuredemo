@@ -24,3 +24,20 @@ customer_segmentation_bfv = BatchFeatureView(
     online=True,
     source=drivers_stat_source,
 )
+
+
+cust0mer_churn_bfv = BatchFeatureView(
+    name="customer_churn",
+    entities=[customer],
+    schema=[
+        Field(name="days_since_last_purchase", dtype=Int64),
+        Field(name="last_90d_order_count", dtype=Int64),
+        Field(name="avg_order_value", dtype=Float32),
+        Field(name="support_ticket_count", dtype=Int64),
+        Field(name="login_count_last_30d", dtype=Int64),
+        Field(name="cupon_usage_rate", dtype=Float32),
+       
+    ],
+    online=True,
+    source=drivers_stat_source,
+)
