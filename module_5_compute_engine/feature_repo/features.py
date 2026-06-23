@@ -1,10 +1,15 @@
 from feast import BatchFeatureView, Field
 from feast.types import String, Float32, Int64
 
-from data_sources import drivers_stat_source
-from entities import customer
+#from data_sources import drivers_stat_source
+#from entities import customer
+customer = Entity(name="customer_id", join_keys=["customer_id"]
+drivers_stat_source = FileSource(
+    Path="../data/customer_features.csv",
+    timestamp_field="event_timestamp",
+)
 
-bfv = BatchFeatureView(
+order_stats = BatchFeatureView(
     name="order_stats",
     entities=[customer],
     schema=[
@@ -16,7 +21,7 @@ bfv = BatchFeatureView(
     online=True,
     source=drivers_stat_source,
 )
-customer_segmentation_bfv = BatchFeatureView(
+customer_segmentation = BatchFeatureView(
     name="customer_segmentation",
     entities=[customer],
     schema=[
@@ -28,7 +33,7 @@ customer_segmentation_bfv = BatchFeatureView(
 )
 
 
-cust0mer_churn_bfv = BatchFeatureView(
+cust0mer_churn = BatchFeatureView(
     name="customer_churn",
     entities=[customer],
     schema=[
