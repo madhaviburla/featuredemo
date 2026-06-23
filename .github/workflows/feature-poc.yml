@@ -28,6 +28,17 @@ jobs:
         run: |
           cd module_5_compute_engine/feature_repo
           python demo_usecase.py
+      - name: Generate Churn Data
+        run: |
+          python module_5_compute_engine/generate.py
+          
+      - name: Materialize feast features
+        run: |
+          cd module_5_compute_engine/feature_repo
+          feast materialize-incremental $(date -u +"%y-%m-%dT%H:%M:%S")
+      - name: Run churn prediction usecase
+        run: |
+          python module_5_compute_engine/predict_.churn.py
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
