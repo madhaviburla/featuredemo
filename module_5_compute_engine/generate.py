@@ -1,8 +1,11 @@
 import pandas as pd
 from datetime import datetime
+from pathlib import path
 
 df = pd.DataFrame({
      "customer_id": [101, 102, 103],
+     "O_TOTALPRICE": [7000.0, 2000.0, 9000.0],
+     "O_ORDERSTATUS": ["F", "O", "F"], 
      "total_orders": [15, 3, 8],
      "days_since_last_purchase": [61, 10, 48],
      "last_90d_orders_count": [1, 8, 2],
@@ -32,6 +35,15 @@ def predict_churn(days_since_last_purchase, last_90d_orders_count, login_count_l
     ):
          return "High Churn Risk"
     return "Low/Medium Churn Risk"
+     
+def high_value_order(total_price):
+    if total_price > 5000:
+       return 1
+    return 0
+def order_completed (status):
+    if status == "F":
+         return 1
+    return 0
 
 df["customer_segment"] = df["total_orders"].apply(segment_customer)
 df["churn_prediction"] = df.apply(
@@ -43,8 +55,19 @@ df["churn_prediction"] = df.apply(
      ),
      axis=1
 )
+
+df["high_value_order"] = df["O_TOTALPRICE"].apply(high_value_order)
+df["order_completed"] = df["O_ORDERSTATUS"].apply(order_completed)
+
+print("Generated customer features:")
 print(df)
 
-df.to_csv("module_5_compute_engine/data/customer_features.csv", index=False)
+output_dir = path("module_5_compute_engine/data")
+output_dir.mkdir(parents==True, exit_ok=True)
+
+output_filr = output_dir / "customer_features.csv"
+df.to_csv(output_file, index=False)
+
+#df.to_csv("module_5_compute_engine/data/customer_features.csv", index=False)
 
 print("customer_features.csv ganerated successfully")
