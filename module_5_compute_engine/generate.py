@@ -22,8 +22,8 @@ def segment_customer(x):
 def predict_churn(days_since_last_purchas, last_90d_orders_count, login_count_last_30d):
     if (
          days_since_last_purchase > 45
-         last_90d_orders_count < 2
-         login_count_last_30d < 3
+         and last_90d_orders_count < 2
+         and login_count_last_30d < 3
     ):
          return "High Churn Risk"
     return "Low/Medium Churn Risk"
