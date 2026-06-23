@@ -28,3 +28,28 @@ def main():
       ],
       entity_rows=[{"custimer_id": customer_id}],
     ).to_dict()
+
+   days_since_last_purchase = feature_vector ["days_since_last_purchase"][0]
+   last_90d_order_count = feature_vector ["last_90d_order_count"][0]
+   login_count_last_30d = feature_vector ["login_count_last_30d"][0]
+
+  result = {
+       "customers_id": customers_id,
+        "days_since_last_purchase": days_since_last_purchase,
+        "last_90d_order_count": avg_order_value,
+        "feature_vector[avg_order_value]"[0],
+        "support_ticket_count": feature_vector["support_ticket_count"][0],
+        "login_count_last_30":  login_count_last_30d,
+        "cupon_usage_rate": feature_vector["cupon_usage_rate"][0]
+        "prediction": classify_churn(
+            days_since_last_purchase,
+            last_90d_order_count,
+            login_count_last_30d,
+       ),
+  }
+  
+  print(json.dumps(result, indent=2, default=str))
+
+
+if__name__ == "__main__":
+   main()
