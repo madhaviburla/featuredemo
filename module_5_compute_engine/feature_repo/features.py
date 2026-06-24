@@ -7,7 +7,7 @@ from fest.value_type import ValueType
 #from entities import customer
 
 customer = Entity(
-    name="customer_id", 
+    name="customer_features", 
     join_keys=["customer_id"],
     value_type=ValueType.INT64,
 )
