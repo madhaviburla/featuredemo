@@ -19,7 +19,7 @@ jobs:
           pip install feast pandas scikit-learn pyarrow pyspark cryptography snowflake-connector-python
       - name: Genarate Feature CSV
         run: |
-          cd madule_5_compute_engine/feature_repo 
+          cd module_5_compute_engine/feature_repo 
           python demo_usecase.py
       - name: Validate feast
         run: feast version
