@@ -1,4 +1,7 @@
+import os
 import pandas as pd
+
+os.makedirs("./data", exist_ok=True)
 
 data = {
     "customer_id": [101, 102, 103],
@@ -31,10 +34,12 @@ df["coupon_usage_rate"] = [0.30, 0.10, 0.45]
 # Feast source timestamp
 df["event_timestamp"] = "2024-06-01 10:00:00"
 
+df.to_csv(".data/customer_features.csv", index=False)
+
 print("customer_feature.csv generated successfully")
 
 print(df.to_string(index=False))
 
-df.to_csv(".data/customer_features.csv", index=False)
+
 
 
