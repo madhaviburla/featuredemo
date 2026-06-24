@@ -32,9 +32,10 @@ df["login_count_last_30d"] = [10, 5, 18]
 df["coupon_usage_rate"] = [0.30, 0.10, 0.45]
 
 # Feast source timestamp
-df["event_timestamp"] = "2024-06-01 10:00:00"
+df["event_timestamp"] = pd.to_datetime("2024-06-01 10:00:00")
+df["created_timestamp"] = pd.to_datetime("2024-06-01 00:00:00")
 
-df.to_csv("./data/customer_features.parquet", index=False)
+df.to_parquet("./data/customer_features.parquet", index=False)
 
 print("customer_feature.csv generated successfully")
 
