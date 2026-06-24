@@ -7,13 +7,13 @@ from feast.types import String, Float32, Int64
 
 customer = Entity(
     name="customer_id", 
-    join_keys=["customer_id"]
+    join_keys=["customer_id"],
     value_type=Int64
 )
 drivers_stat_source = FileSource(
     path=".data/customer_features.parquet",
     timestamp_field="event_timestamp",
-    created_timestamo_column="event_timestamp"
+    created_timestamo_column="event_timestamp",
     
 )
 
