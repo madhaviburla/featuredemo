@@ -12,7 +12,7 @@ customer = Entity(
     value_type=ValueType.INT64,
 )
 drivers_stat_source = FileSource(
-    path=".data/customer_features.parquet",
+    path=".data/customer_data.parquet",
     timestamp_field="event_timestamp",
     created_timestamp_column="created_timestamp",
     
@@ -23,37 +23,38 @@ order_stats = BatchFeatureView(
     entities=[customer],
     schema=[
         Field(name="O_TOTALPRICE", dtype=Float32),
-        Field(name="O_ORDERSTATUS", dtype=String),
+        #Field(name="O_ORDERSTATUS", dtype=String),
         Field(name="high_order_value", dtype=Int64),
-        Field(name="order_completed", dtype=Int64),
-    ],
-    online=True,
-    source=drivers_stat_source,
-)
-customer_segmentation = BatchFeatureView(
-    name="customer_segmentation",
-    entities=[customer],
-    schema=[
-        Field(name="total_orders", dtype=Float32),
-        Field(name="customer_segment", dtype=String),
+        #Field(name="order_completed", dtype=Int64),
+        Field(name="order_count", dtype=Int=64),
     ],
     online=False,
     source=drivers_stat_source,
 )
+#customer_segmentation = BatchFeatureView(
+ #   name="customer_segmentation",
+  #  entities=[customer],
+    #schema=[
+     #   Field(name="total_orders", dtype=Float32),
+       # Field(name="customer_segment", dtype=String),
+   # ],
+   # online=False,
+    #source=drivers_stat_source,
+#)
 
 
-cust0mer_churn = BatchFeatureView(
-    name="customer_churn",
-    entities=[customer],
-    schema=[
-        Field(name="days_since_last_purchase", dtype=Int64),
-        Field(name="last_90d_order_count", dtype=Int64),
-        Field(name="avg_order_value", dtype=Float32),
-        Field(name="support_ticket_count", dtype=Int64),
-        Field(name="login_count_last_30d", dtype=Int64),
-        Field(name="cupon_usage_rate", dtype=Float32),
+#cust0mer_churn = BatchFeatureView(
+    #name="customer_churn",
+    #entities=[customer],
+    #schema=[
+        #Field(name="days_since_last_purchase", dtype=Int64),
+        #Field(name="last_90d_order_count", dtype=Int64),
+        #Field(name="avg_order_value", dtype=Float32),
+        #Field(name="support_ticket_count", dtype=Int64),
+        #Field(name="login_count_last_30d", dtype=Int64),
+        #Field(name="cupon_usage_rate", dtype=Float32),
        
-    ],
-    online=False,
-    source=drivers_stat_source,
-)
+    #],
+    #online=False,
+    #source=drivers_stat_source,
+#)
