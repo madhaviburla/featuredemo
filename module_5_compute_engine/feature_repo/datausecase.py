@@ -11,9 +11,9 @@ entity_rows = [
 data = store.get_historical_features(
     entity_df=entity_rows,
     features=[
-        "customer_features:total_price",
-        "customer_features:order_count",
-        "customer_features:high_value_customer",
+        "customer_features:high_value_order",
+        "customer_features:order_completed",
+        "customer_features:total_orders",
     ],
 ).to_df()
 
