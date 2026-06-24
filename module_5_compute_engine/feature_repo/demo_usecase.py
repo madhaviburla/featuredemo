@@ -18,7 +18,7 @@ df["order_completed"] = df["O_ORDERSTATUS"].apply(
 
 # segmentation features
 df["total_orders"] = [15, 5, 20]
-df["customer_segmen"] = ["High", "Low", "High"]
+df["customer_segment"] = ["High", "Low", "High"]
 
 # Churn Features
 df["days_since_last_purchase"] = [5, 20, 2]
