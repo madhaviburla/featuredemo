@@ -35,6 +35,6 @@ print("customer_feature.csv generated successfully")
 
 print(df.to_string(index=False))
 
-df.to_csv("./data/customer_features.csv", index=False)
+df.to_csv("customer_features.csv", index=False)
 
 
