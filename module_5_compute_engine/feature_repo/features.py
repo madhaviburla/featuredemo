@@ -7,6 +7,7 @@ customer = Entity(name="customer_id", join_keys=["customer_id"])
 drivers_stat_source = FileSource(
     path=".data/customer_features.csv",
     timestamp_field="event_timestamp",
+    file_format="csv",
 )
 
 order_stats = BatchFeatureView(
