@@ -9,15 +9,16 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install feast pandas scikit-learn pyarrow pyspark cryptography snowflake-connector-python
-      - name: Genarate Feature CSV
+      - name: Genarate data
         run: |
           cd module_5_compute_engine/feature_repo 
           python demo_usecase.py
@@ -31,22 +32,22 @@ jobs:
         run: |
           cd module_5_compute_engine/feature_repo
           python demo_usecase.py
-      - name: Generate Churn Data
-        run: |
-          python module_5_compute_engine/generate.py
+      # - name: Generate Churn Data
+      #   run: |
+      #     python module_5_compute_engine/generate.py
           
-      - name: Materialize feast features
-        run: |
-          cd module_5_compute_engine/feature_repo
-          feast materialize-incremental 2026-06-23T07:39:46
-      - name: Run churn prediction usecase
-        run: |
-          python module_5_compute_engine/predict_.churn.py
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: feast result
-          path: .
+      # - name: Materialize feast features
+      #   run: |
+      #     cd module_5_compute_engine/feature_repo
+      #     feast materialize-incremental 2026-06-23T07:39:46
+      # - name: Run churn prediction usecase
+      #   run: |
+      #     python module_5_compute_engine/predict_.churn.py
+      # - name: Upload Artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: feast result
+      #     path: .
           
         
           
