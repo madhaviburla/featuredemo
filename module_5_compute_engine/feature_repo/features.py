@@ -1,5 +1,6 @@
 from feast import Entity, BatchFeatureView, Field, FileSource
 from feast.types import String, Float32, Int64
+from fest.value_type import ValueType
 
 
 #from data_sources import drivers_stat_source
@@ -8,7 +9,7 @@ from feast.types import String, Float32, Int64
 customer = Entity(
     name="customer_id", 
     join_keys=["customer_id"],
-    value_type=Int64,
+    value_type=ValueType.INT64,
 )
 drivers_stat_source = FileSource(
     path=".data/customer_features.parquet",
@@ -36,7 +37,7 @@ customer_segmentation = BatchFeatureView(
         Field(name="total_orders", dtype=Float32),
         Field(name="customer_segment", dtype=String),
     ],
-    online=True,
+    online=False,
     source=drivers_stat_source,
 )
 
@@ -53,6 +54,6 @@ cust0mer_churn = BatchFeatureView(
         Field(name="cupon_usage_rate", dtype=Float32),
        
     ],
-    online=True,
+    online=False,
     source=drivers_stat_source,
 )
