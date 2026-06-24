@@ -1,15 +1,20 @@
 from feast import Entity, BatchFeatureView, Field, FileSource
 from feast.types import String, Float32, Int64
-from feast.data_format import ParquetFormat
+
 
 #from data_sources import drivers_stat_source
 #from entities import customer
 
-customer = Entity(name="customer_id", join_keys=["customer_id"])
+customer = Entity(
+    name="customer_id", 
+    join_keys=["customer_id"]
+    value_type=Int64
+)
 drivers_stat_source = FileSource(
     path=".data/customer_features.parquet",
     timestamp_field="event_timestamp",
-    fmt=ParquetFormat(),
+    created_timestamo_column="event_timestamp"
+    
 )
 
 order_stats = BatchFeatureView(
