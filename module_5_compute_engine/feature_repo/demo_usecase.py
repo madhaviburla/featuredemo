@@ -34,7 +34,7 @@ df["coupon_usage_rate"] = [0.30, 0.10, 0.45]
 # Feast source timestamp
 df["event_timestamp"] = "2024-06-01 10:00:00"
 
-df.to_csv(".data/customer_features.csv", index=False)
+df.to_csv("./data/customer_features.csv", index=False)
 
 print("customer_feature.csv generated successfully")
 
