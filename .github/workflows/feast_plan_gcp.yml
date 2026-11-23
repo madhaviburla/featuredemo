@@ -21,7 +21,7 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      # Run `feast plan`
+      # Run `feast plan1`
       - uses: actions/checkout@v2
       - name: Install feast
         run: pip install "feast[aws]"
